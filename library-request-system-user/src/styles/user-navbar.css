@@ -1,0 +1,122 @@
+/* =========================
+   NAV WRAPPER
+========================= */
+
+.nav-head {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* =========================
+   MAIN NAVBAR
+========================= */
+
+.user-navbar {
+  height: 64px;
+  padding: 0 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  color: #fff;
+  border-radius: 0 0 14px 14px;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.nav-logo {
+  font-family: "Cinzel", serif;
+  font-size: 19px;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  transition: transform 0.25s ease;
+}
+
+.nav-logo:hover {
+  transform: scale(1.05);
+}
+
+/* =========================
+   ACTION BUTTONS
+========================= */
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* =========================
+   ICON BUTTON
+========================= */
+
+.icon-btn {
+  width: 36px;
+  height: 36px;
+
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+
+  transition: all 0.25s ease;
+}
+
+.icon-btn:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 18px rgba(123, 92, 255, 0.35);
+}
+
+/* =========================
+   LOGOUT BUTTON SPECIAL
+========================= */
+
+.icon-btn.logout {
+  background: linear-gradient(90deg, #7b5cff, #00b2ff);
+  box-shadow: 0 0 18px rgba(123, 92, 255, 0.35);
+}
+
+.icon-btn.logout:hover {
+  transform: scale(1.12);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .user-navbar {
+    height: 58px;
+    padding: 0 18px;
+  }
+
+  .nav-logo {
+    font-size: 17px;
+  }
+
+  .icon-btn {
+    width: 32px;
+    height: 32px;
+  }
+}

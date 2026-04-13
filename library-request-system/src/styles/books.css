@@ -1,0 +1,286 @@
+/* =========================
+   BOOKS / FORMS BASE
+========================= */
+
+.book-form-container,
+.manage-books-container {
+  padding: 30px;
+}
+
+/* Glass card wrapper for form */
+.book-form {
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  color: #fff;
+}
+
+.book-form input {
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.10);
+  color: #fff;
+}
+
+.book-form input::placeholder {
+  color: rgba(255, 255, 255, 0.70);
+}
+
+.book-form button {
+  padding: 10px;
+  background: linear-gradient(90deg, #7b5cff, #00b2ff);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* =========================
+   BOOK GRID
+========================= */
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* Book card */
+.book-card {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
+  color: #fff;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.30);
+}
+
+.book-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.book-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.book-actions button {
+  padding: 6px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.book-actions .danger {
+  background: rgba(255, 0, 0, 0.18);
+  color: #fff;
+}
+
+/* =========================
+   ADD BOOK PAGE
+========================= */
+
+.addbook-container {
+  max-width: 420px;
+  margin: 40px auto;
+  padding: 25px;
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  color: #fff;
+}
+
+.addbook-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.addbook-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.addbook-form input {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.10);
+  color: #fff;
+}
+
+.addbook-form input::placeholder {
+  color: rgba(255, 255, 255, 0.70);
+}
+
+.addbook-form input:focus {
+  outline: none;
+  border-color: rgba(123, 92, 255, 0.70);
+  box-shadow: 0 0 0 3px rgba(123, 92, 255, 0.25);
+}
+
+.preview {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  background: rgba(255, 255, 255, 0.10);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.save-btn {
+  flex: 1;
+  padding: 10px;
+  background: linear-gradient(90deg, #7b5cff, #00b2ff);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.cancel-btn {
+  flex: 1;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.error {
+  color: #ff6b6b;
+  text-align: center;
+  font-size: 14px;
+}
+
+.delete-btn {
+  color: #ff6b6b;
+}
+
+/* =========================
+   DARK MODE — BOOKS
+========================= */
+
+.dark .addbook-container,
+.dark .book-form,
+.dark .book-card,
+.dark .book-list {
+  background: rgba(30, 30, 30, 0.55);
+  color: #f1f1f1;
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.dark .book-form input,
+.dark .addbook-form input {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.dark .book-form input::placeholder,
+.dark .addbook-form input::placeholder {
+  color: #aaa;
+}
+
+.dark .preview {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.dark .save-btn {
+  background: linear-gradient(90deg, #7b5cff, #00b2ff);
+}
+
+.dark .cancel-btn {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.dark .book-actions button {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.dark .book-actions .danger,
+.dark .delete-btn {
+  background: rgba(255, 0, 0, 0.18);
+  color: #fff;
+}
+
+.dark .error {
+  color: #ff6b6b;
+}
+
+/* =========================
+   RESPONSIVE — BOOKS
+========================= */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .addbook-container {
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  .book-form {
+    max-width: 100%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .save-btn,
+  .cancel-btn {
+    width: 100%;
+  }
+
+  .book-card img {
+    height: 180px;
+  }
+}

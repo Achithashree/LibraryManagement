@@ -1,0 +1,184 @@
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   LOGIN CONTAINER
+========================= */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inter", sans-serif;
+
+  background: linear-gradient(-45deg,#1b003b,#5b2c6f,#a23e8a,#ff6fb5);
+  background-size: 300% 300%;
+  animation: gradientFlow 12s ease infinite;
+  position: relative;
+}
+
+/* soft noise overlay */
+.login-container::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image:
+    radial-gradient(circle at 20% 20%, white 1px, transparent 1px),
+    radial-gradient(circle at 80% 80%, white 1px, transparent 1px);
+}
+
+/* =========================
+   LOGIN CARD
+========================= */
+.login-form {
+  width: 360px;
+  padding: 38px;
+  border-radius: 16px;
+
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+
+  animation: fadeUp 0.6s ease;
+  position: relative;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes fadeUp {
+  from {opacity:0; transform:translateY(20px);}
+  to {opacity:1; transform:translateY(0);}
+}
+
+@keyframes gradientFlow {
+  0% {background-position:0% 50%;}
+  50% {background-position:100% 50%;}
+  100% {background-position:0% 50%;}
+}
+
+/* =========================
+   TEXT
+========================= */
+.login-form h2 {
+  text-align: center;
+  color: white;
+  margin-bottom: 25px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* =========================
+   INPUTS
+========================= */
+.login-form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(0,0,0,0.25);
+  color: white;
+  font-size: 14px;
+}
+
+.login-form input::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+.login-form input:focus {
+  outline: none;
+  border-color: rgba(255,255,255,0.6);
+  box-shadow: 0 0 0 3px rgba(255,111,181,0.25);
+}
+
+/* =========================
+   PASSWORD FIELD
+========================= */
+.password-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-wrapper input {
+  padding-right: 42px;
+}
+
+.password-toggle-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  color: rgba(255,255,255,0.7);
+  transition: 0.2s;
+}
+
+.password-toggle-icon:hover {
+  color: #ffb6e6;
+}
+
+/* =========================
+   BUTTON
+========================= */
+.login-form button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+
+  background: linear-gradient(135deg,#ff6fb5,#a23e8a);
+  transition: 0.25s;
+}
+
+.login-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(255,111,181,0.4);
+}
+
+.login-form button:active {
+  transform: scale(0.96);
+}
+
+/* =========================
+   ERROR + REGISTER TEXT
+========================= */
+.error {
+  text-align: center;
+  color: #ff6b6b;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.register-text {
+  text-align: center;
+  margin-top: 10px;
+  color: rgba(255,255,255,0.8);
+}
+
+.register-link {
+  color: #ffb6e6;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}

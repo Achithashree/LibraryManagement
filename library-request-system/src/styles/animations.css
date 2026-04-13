@@ -1,0 +1,334 @@
+/* ===============================
+   GLOBAL PAGE TRANSITION
+================================ */
+
+@keyframes pageFade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dashboard-container,
+.login-container,
+.manage-books-page,
+.addbook-container,
+.requests-section,
+.book-form-container {
+  animation: pageFade 0.5s ease-out;
+}
+
+/* ===============================
+   CARD HOVER
+================================ */
+
+.action-card,
+.book-card,
+.manage-book-card,
+.request-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.action-card:hover,
+.book-card:hover,
+.manage-book-card:hover,
+.request-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.30);
+}
+
+/* ===============================
+   BUTTON FEEDBACK
+================================ */
+
+button {
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s;
+}
+
+button:hover {
+  opacity: 0.95;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+/* ===============================
+   INPUT FOCUS EFFECT
+================================ */
+
+input,
+select,
+textarea {
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(123, 92, 255, 0.25);
+  border-color: rgba(123, 92, 255, 0.65);
+}
+
+/* ===============================
+   MODAL ANIMATION
+================================ */
+
+.modal-overlay {
+  animation: overlayFade 0.3s ease;
+}
+
+.modal {
+  animation: modalZoom 0.35s ease;
+}
+
+@keyframes overlayFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalZoom {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ===============================
+   ERROR SHAKE
+================================ */
+
+.error {
+  animation: shake 0.35s ease;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}
+
+/* ===============================
+   STATS POP-IN (Dashboard)
+================================ */
+
+.stat-box {
+  animation: statPop 0.4s ease;
+}
+
+@keyframes statPop {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ===============================
+   CHART BAR ANIMATION
+================================ */
+
+.bar {
+  animation: growBar 0.8s ease-out;
+}
+
+@keyframes growBar {
+  from {
+    width: 0;
+  }
+}
+
+/* ===============================
+   REQUEST STATUS BADGE
+================================ */
+
+.status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: bold;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===============================
+   IMAGE PREVIEW FADE
+================================ */
+
+.preview img,
+.book-cover {
+  animation: fadeIn 0.4s ease;
+}
+
+/* ===============================
+   NEW: SUBTLE SHIMMER (Glassy Feel)
+================================ */
+
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.18) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: translateX(-100%);
+  animation: shimmerMove 2.8s ease-in-out infinite;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+@keyframes shimmerMove {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* ===============================
+   ACCESSIBILITY
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* ======================================================
+   MODERN BACKGROUND + GLASSMORPHISM (All-in-One)
+====================================================== */
+
+/* ---------- GRADIENT ANIMATION ---------- */
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ---------- LOGIN BACKGROUND ---------- */
+
+.login-container {
+  min-height: 100vh;
+  background: linear-gradient(
+    -45deg,
+    #0f0c14,
+    #1a1630,
+    #4a3b7a,
+    #7b5cff
+  );
+  background-size: 300% 300%;
+  animation: gradientFlow 12s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ---------- DASHBOARD BACKGROUND ---------- */
+
+.dashboard-container {
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #0b0c14,
+    #1a1630,
+    #4a3b7a,
+    #7b5cff
+  );
+  background-size: 300% 300%;
+  animation: gradientFlow 14s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ---------- SUBTLE NOISE TEXTURE ---------- */
+
+.login-container::before,
+.dashboard-container::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  z-index: 0;
+}
+
+/* ---------- GLASSMORPHISM CARDS ---------- */
+
+.login-form,
+.action-card,
+.stat-box,
+.book-card,
+.manage-book-card,
+.request-card,
+.modal,
+.addbook-container,
+.book-form-container {
+  background: rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+
+/* ---------- DARK MODE SUPPORT ---------- */
+
+.dashboard-container.dark .action-card,
+.dashboard-container.dark .stat-box,
+.dashboard-container.dark .book-card,
+.dashboard-container.dark .manage-book-card,
+.dashboard-container.dark .request-card,
+.dashboard-container.dark .modal,
+.dashboard-container.dark .addbook-container,
+.dashboard-container.dark .book-form-container {
+  background: rgba(30, 30, 30, 0.55);
+  color: #e0e0e0;
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+/* ---------- SMOOTH TEXT ---------- */
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}

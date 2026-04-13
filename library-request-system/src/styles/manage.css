@@ -1,0 +1,264 @@
+/* =========================
+   MANAGE BOOKS PAGE
+========================= */
+.manage-books-page {
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.manage-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.manage-header button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(90deg, #7b5cff, #ff6fb5);
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.manage-header button:hover {
+  transform: translateY(-1px);
+}
+
+/* =========================
+   SEARCH & FILTER
+========================= */
+.manage-books-toolbar {
+  display: flex;
+  gap: 12px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.book-search,
+.book-filter {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.book-filter {
+  cursor: pointer;
+}
+
+.book-search {
+  flex: 1;
+  min-width: 220px;
+}
+
+.book-search::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.book-search:focus,
+.book-filter:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 0 3px rgba(123, 92, 255, 0.25);
+}
+
+/* dropdown list */
+.book-filter option {
+  background: rgba(40, 40, 40, 0.95);
+  color: #fff;
+}
+
+/* =========================
+   MANAGE GRID
+========================= */
+.manage-books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 22px;
+  align-items: stretch;
+}
+
+/* =========================
+   MANAGE CARD
+========================= */
+.manage-book-card {
+  padding: 14px;
+  border-radius: 14px;
+  max-width: 320px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: scaleIn 0.25s ease;
+
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
+  color: #fff;
+}
+
+.manage-book-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.30);
+}
+
+/* IMAGE */
+.manage-book-image {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f2f2f2;
+  margin-bottom: 10px;
+}
+
+.manage-book-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* INFO */
+.manage-book-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.manage-book-info h4 {
+  font-size: 15px;
+  color: #fff;
+  margin: 4px 0;
+}
+
+.manage-book-info p {
+  font-size: 13px;
+  opacity: 0.9;
+  margin: 0;
+}
+
+/* ACTIONS */
+.manage-book-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.manage-book-actions button {
+  flex: 1;
+  padding: 8px 0;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(90deg, #7b5cff, #ff6fb5);
+  color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.manage-book-actions button:hover {
+  transform: translateY(-1px);
+}
+
+/* =========================
+   MODAL (GLASS STYLE - SAME COLOR TONE)
+========================= */
+.modal-overlaym {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+}
+
+.modal {
+  width: 90%;
+  max-width: 420px;
+  padding: 20px;
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+  color: #fff;
+}
+
+.modal-formm {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.modal-formm input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.modal-formm input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.modal-actionsm {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.modal-actionsm button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(90deg, #7b5cff, #ff6fb5);
+  color: #fff;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .actions-grid,
+  .stats-section {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  .books-container,
+  .manage-books-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 450px) {
+  .books-container,
+  .manage-books-grid {
+    grid-template-columns: 1fr;
+  }
+}

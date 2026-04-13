@@ -1,0 +1,431 @@
+.dashboard-container {
+  padding: 20px;
+  min-height: 100vh;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #EAEAF0;
+
+  /* Midnight Aurora background */
+  background: linear-gradient(
+    135deg,
+    #0b0c14,
+    #1a1630,
+    #4a3b7a,
+    #7b5cff
+  );
+  background-size: 300% 300%;
+  animation: gradientFlow 14s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.dashboard-container::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  z-index: 0;
+}
+
+/* =========================
+   ACTION GRID
+========================= */
+.actions-grid {
+  margin: 30px 0;
+  display: flex;
+  gap: 20px;
+}
+
+.action-card {
+  flex: 1;
+  padding: 22px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  /* Glassmorphism */
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  color: #fff;
+}
+
+.action-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(123, 92, 255, 0.20));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.action-card:hover::after {
+  opacity: 1;
+}
+
+.action-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.30);
+}
+
+.action-card.active {
+  border: 2px solid rgba(123, 92, 255, 0.55);
+}
+
+/* =========================
+   STATS
+========================= */
+.stats-section {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.stat-box {
+  flex: 1;
+  padding: 20px;
+  border-radius: 16px;
+  text-align: center;
+  transition: transform 0.25s ease;
+
+  /* Glassmorphism */
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
+  color: #fff;
+}
+
+.stat-box:hover {
+  transform: scale(1.03);
+}
+
+.stat-box h4 {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.stat-box p {
+  font-size: 26px;
+  font-weight: 700;
+  margin-top: 6px;
+  color: #fff;
+}
+
+/* =========================
+   CHART
+========================= */
+.chart-section {
+  padding: 22px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+
+  /* Glassmorphism */
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
+  color: #fff;
+}
+
+.chart-row {
+  margin: 14px 0;
+}
+
+.chart-row span {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.bar {
+  height: 10px;
+  background: linear-gradient(90deg, #7b5cff, #ff6fb5);
+  border-radius: 8px;
+  margin-top: 6px;
+}
+
+/* =========================
+   BOOK GRID (HOME)
+========================= */
+.books-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 22px;
+}
+
+/* =========================
+   BOOK CARD
+========================= */
+.book-card {
+  padding: 10px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  /* Glassmorphism */
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
+  color: #fff;
+}
+
+.book-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.30);
+}
+
+.book-cover {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.book-title {
+  font-size: 14px;
+  margin: 8px 0 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #fff;
+}
+
+.book-author {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* =========================
+   MODAL (GLOBAL)
+========================= */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  padding: 22px;
+  border-radius: 18px;
+  width: 90%;
+  max-width: 380px;
+  animation: scaleIn 0.3s ease;
+
+  /* Glassmorphism */
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+}
+
+.modal img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+.modal button {
+  margin-top: 14px;
+  padding: 10px 18px;
+  border: none;
+  background: linear-gradient(90deg, #7b5cff, #ff6fb5);
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* =========================
+   MANAGE BOOKS PAGE
+========================= */
+.manage-books-page {
+  padding: 20px;
+}
+
+.manage-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.manage-header button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(90deg, #7b5cff, #ff6fb5);
+  color: #fff;
+  cursor: pointer;
+}
+
+/* =========================
+   SEARCH & FILTER
+========================= */
+.manage-books-toolbar {
+  display: flex;
+  gap: 12px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.book-search,
+.book-filter {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.book-search {
+  flex: 1;
+  min-width: 220px;
+}
+
+.book-search::placeholder,
+.book-filter::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.book-search:focus,
+.book-filter:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 0 3px rgba(123, 92, 255, 0.25);
+}
+
+/* =========================
+   MANAGE GRID
+========================= */
+.manage-books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 22px;
+}
+
+/* =========================
+   MANAGE CARD
+========================= */
+.manage-book-card {
+  padding: 14px;
+  border-radius: 14px;
+  max-width: 320px;
+  width: 100%;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: scaleIn 0.25s ease;
+
+  /* Glassmorphism */
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
+  color: #fff;
+}
+
+.manage-book-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.30);
+}
+
+/* IMAGE */
+.manage-book-image {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f2f2f2;
+}
+
+.manage-book-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.manage-book-info h4 {
+  font-size: 15px;
+  color: #fff;
+}
+
+.manage-book-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.manage-book-actions button {
+  flex: 1;
+  padding: 8px 0;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  background: linear-gradient(90deg, #7b5cff, #ff6fb5);
+  color: #fff;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .actions-grid,
+  .stats-section {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  .books-container,
+  .manage-books-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 450px) {
+  .books-container,
+  .manage-books-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   ANIMATION
+========================= */
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Gradient flow */
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

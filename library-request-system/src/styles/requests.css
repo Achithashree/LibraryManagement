@@ -1,0 +1,131 @@
+.requests-section {
+  padding: 24px;
+  color: #fff;
+}
+
+.requests-section h2 {
+  margin-bottom: 20px;
+}
+
+.requests-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
+}
+
+.request-card {
+  padding: 18px;
+  border-radius: 16px;
+
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.18);
+  backdrop-filter: blur(14px);
+
+  box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+  transition: 0.25s ease;
+}
+
+.request-card:hover {
+  transform: translateY(-6px);
+}
+
+.request-top {
+  display: flex;
+  gap: 14px;
+}
+
+.book-img {
+  width: 70px;
+  height: 95px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.request-info h4 {
+  margin-bottom: 6px;
+}
+
+.request-info p {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* STATUS */
+.status {
+  margin-left: 6px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.status.pending {
+  background: rgba(255,193,7,0.25);
+  box-shadow: 0 0 10px rgba(255,193,7,0.3);
+}
+
+.status.approved {
+  background: rgba(40,167,69,0.25);
+  box-shadow: 0 0 10px rgba(40,167,69,0.3);
+}
+
+.status.rejected {
+  background: rgba(220,53,69,0.25);
+  box-shadow: 0 0 10px rgba(220,53,69,0.3);
+}
+
+/* ACTIONS */
+.request-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.request-actions button {
+  flex: 1;
+  padding: 9px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 13px;
+  transition: 0.2s;
+}
+
+.request-actions button:hover {
+  transform: translateY(-2px);
+}
+
+.approve-btn {
+  background: linear-gradient(90deg,#7b5cff,#ff6fb5);
+}
+
+.reject-btn {
+  background: linear-gradient(90deg,#ff4b5c,#ff7a18);
+}
+
+.delete-btn {
+  flex-basis: 100%;
+  background: linear-gradient(90deg,#ff416c,#ff1e56);
+}
+
+.delete-btn:hover {
+  box-shadow: 0 8px 20px rgba(255,30,86,0.4);
+}
+
+.no-requests {
+  padding: 40px;
+  text-align: center;
+  opacity: 0.7;
+}
+
+@media(max-width:700px){
+  .requests-list{
+    grid-template-columns:1fr;
+  }
+  .request-top{
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
+}
